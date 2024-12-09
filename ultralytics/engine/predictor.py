@@ -112,6 +112,8 @@ class BasePredictor:
         self._lock = threading.Lock()  # for automatic thread-safe inference
         callbacks.add_integration_callbacks(self)
 
+        self.prev_frame = None  # 用于存储前一帧的图像
+
     def preprocess(self, im):
         """
         Prepares input image before inference.
